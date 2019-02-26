@@ -1,0 +1,11 @@
+<launch>
+  <arg name="red"   default="255" doc="Red decimal 8 bit colour of target to chase" />
+  <arg name="green" default="255" doc="Green decimal 8 bit colour of target to chase" />
+  <arg name="blue"  default="255" doc="Blue decimal 8 bit colour of target to chase" />
+
+  <node name="drive_bot" type="drive_bot" pkg="ball_chaser" output="screen">
+  </node>
+
+  <node name="process_image" type="process_image" pkg="ball_chaser"  args="-r $(arg red) -g $(arg green) -b $(arg blue)" output="screen">
+  </node>
+</launch>
