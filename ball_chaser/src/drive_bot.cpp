@@ -14,11 +14,13 @@
 
 ros::Publisher motor_command_publisher; /**< ROS::Publisher motor commands */
 
-// This function should publish the requested linear x and angular velocities to the robot wheel joints
-// After publishing the requested velocities, a message feedback should be returned with the requested wheel velocities
+/** 
+ * @brief This function should publish the requested linear x and angular velocities to the robot wheel joints
+ *
+ * After publishing the requested velocities, a message feedback should be returned with the requested wheel velocities
+ */
 bool handle_drive_request(ball_chaser::DriveToTarget::Request& req, ball_chaser::DriveToTarget::Response& res){
-  // Create a motor_command object of type geometry_msgs::Twist
-  geometry_msgs::Twist motor_command;
+  geometry_msgs::Twist motor_command; /**< Create a motor_command object of type geometry_msgs::Twist */
 
   // Set wheel velocities
   motor_command.linear.x = static_cast<float>(req.linear_x);
