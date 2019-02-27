@@ -71,7 +71,7 @@ DriveDirection get_drive_direction(uint left_pixel_count, uint mid_pixel_count, 
     // Stop - direction set as default above
     ROS_INFO("ProcessImage:- Can't see target colour! Stopping robot.");
   } else {
-    if ( left _pixel_count> right_pixel_count ){
+    if ( left_pixel_count> right_pixel_count ){
       direction = DriveDirection::Left;
     } else if ( right_pixel_count > left_pixel_count ){
       direction = DriveDirection::Right;
@@ -97,7 +97,7 @@ void drive_robot(float lin_x, float ang_z){
   rosDriveToService.request.linear_x = lin_x;
   rosDriveToService.request.angular_z = ang_z;
 
-  if ( !client.call(rosDriveToService) ) {
+  if ( !rosServiceClient.call(rosDriveToService) ) {
     ROS_ERROR("ProcessImage:- Failed to call the service drive_bot");
   }
 }
